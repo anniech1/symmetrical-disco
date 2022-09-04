@@ -1,0 +1,49 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    padding: 15px;
+    width: 750px;
+    max-width: 80%;
+    border-radius: 5px;
+    border-color: black;
+}
+
+.buttonGrid{
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}
+
+.btn{
+    border-color: lightblue;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn:hover {
+    background-color: lightblue;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
