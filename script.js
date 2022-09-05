@@ -1,3 +1,19 @@
+const startTimeMinutes = 1;
+let time = startTimeMinutes * 60;
+
+const countdownEl = document.getElementById('countdown-timer');
+
+setInterval(startCountdown, 1000);
+
+function startCountdown(){
+  const minutes = Math.floor(time/60);
+  let seconds = time % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  countdownEl.innerHTML = `${minutes}:${seconds}`;
+  time--;
+}
+
 const startButton = document.getElementById('startBtn')
 const questionBox = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
