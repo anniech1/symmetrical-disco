@@ -42,7 +42,7 @@ const questions = [
     }
 ]
 
-let shuffledQuestions, currentQuestionIndex
+let randomQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', ()=>{
@@ -52,6 +52,7 @@ nextButton.addEventListener('click', ()=>{
 
 function startQuiz (){
     startButton.classList.add('hide')
+    randomQuestions = questions.sort(() => Math.random()- .5)
     questionBox.classList.remove('hide')
     currentQuestionIndex = 0
     nextQuestion()
@@ -60,7 +61,7 @@ function startQuiz (){
 
 function nextQuestion(){
     resetQuestions()
-    displayQuestion([currentQuestionIndex])
+    displayQuestion(randomQuestions[currentQuestionIndex])
 }
 
 function displayQuestion(question){
@@ -92,7 +93,7 @@ function resetQuestions() {
     Array.from(answerButtonsElement.children).forEach(button => {
       setStatusClass(button, button.dataset.correct)
     })
-    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    if (randomQuestions.length > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide')
     } else {
       startButton.innerText = 'Restart'
@@ -111,5 +112,5 @@ function resetQuestions() {
   
   function clearStatusClass(element) {
     element.classList.remove('correct')
-    element.classList.remove('wrong')
+    element.classList.remove('incorrect')
   }
